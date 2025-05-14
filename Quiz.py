@@ -103,7 +103,7 @@ def do_maths(op_type):
         answer = number1 * number2
         unit = "*"
     # this is the question heading
-    print(f"🤔🤔🤔 You are on question number {round_played} 🤔🤔🤔")
+    print(f"🤔🤔🤔 You are on question number {round_played} out of {max_rounds} 🤔🤔🤔")
     print(answer)
     # this is where the user is asked for there input.
     user_answer = int_check(f"{number1} {unit} {number2} ", exit_code="xxx")
@@ -163,7 +163,8 @@ if round_played > 1:
                 print(item)
 
         print()
-        print("Thanks for playing")
+        print("Thanks for answering the quiz's question"
+              "All Answer were generated of the fly!")
 # this is where if the user doesn't answer any question's it will print the following!
 else:
     # print a statement if that user selected infinite mode and didn't play any rounds!!!
