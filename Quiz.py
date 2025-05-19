@@ -70,6 +70,9 @@ To get started with the quiz follow the following steps
 3) Once you have answered all the questions you will be asked if 
    you want to see your history if you answer yes it will display! 
 
+If you are too sleepy to answer anymore question you can type "xxx"
+and that will stop the quiz and ask if you want to see the history!
+
 Good Luck and have fun!!!
     ''')
 
