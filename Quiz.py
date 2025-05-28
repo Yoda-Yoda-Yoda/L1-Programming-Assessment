@@ -115,13 +115,15 @@ def do_maths(op_type):
         return user_answer
     # this is where the user gets their feedback and also adds it to the quiz history
     if user_answer == answer:
-        feedback = f"😃😃😃 Well Done for guessing the answer {answer} 😃😃😃"
+        print(f"😃😃😃 Well Done for guessing the answer {answer} 😃😃😃")
         quiz_history.append(f"😀😀😀Question {round_played}, The question was {number1} {unit} {number2} and you guessed the correct answer which was {answer} 😀😀😀")
+        print()
+        return "yes"
+
     else:
-        feedback = f"💩💩💩 You didn't Guess the answer: {answer} 💩💩💩"
+        print(f"💩💩💩 You didn't Guess the answer: {answer} 💩💩💩")
         quiz_history.append(f"💩💩💩Question {round_played}, The question was {number1} {unit} {number2} the correct answer was {answer} BUT you guessed {user_answer} 💩💩💩")
-    print(feedback)
-    print()
+        print()
     # check user_answer against answer
 
 
@@ -129,6 +131,7 @@ def do_maths(op_type):
 round_played = 1
 max_rounds = 0
 quiz_history = []
+correct_ans = 0
 
 print("🎩🎩🎩 Welcome to the QUIZ! 🎩🎩🎩")
 
@@ -144,9 +147,14 @@ max_rounds = int_check("What is the max number of questions you want to answer? 
 while round_played <= max_rounds:
     # call the do_maths function witch is where the main part of the program is!
     math_ans = do_maths(random.randint(1, 4))
+
     # checks if the user typed the exit code if so the quiz will break
+
+
     if math_ans == "xxx":
         break
+    if math_ans == "yes":
+        correct_ans += 1
     # add 1 to the round's played until it is equal to max_rounds then it will stop the loop!
     round_played += 1
 
@@ -161,13 +169,14 @@ if round_played > 1:
     # checks if the user typed yes/y if so the quiz history will display!
     if see_history.lower() == "yes" or see_history.lower() == "y":
         print("🪄🪄🪄 Quiz History 🪄🪄🪄")
+        print(f"You got {correct_ans} out of {round_played - 1}")
         print()
         for item in quiz_history:
                 print(item)
 
         print()
-        print("Thanks for answering the quiz's question"
-              "All Answer were generated of the fly!")
+        print("Thanks for answering the quiz's questions. "
+              "All questions were generated on the fly!")
 # this is where if the user doesn't answer any question's it will print the following!
 else:
     # print a statement if that user selected infinite mode and didn't play any rounds!!!
